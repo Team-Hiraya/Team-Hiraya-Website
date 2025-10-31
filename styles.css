@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #111;
+  color: #f0f0f0;
+  text-align: center;
+}
+
+header {
+  padding: 50px 20px;
+  background: #1a1a1a;
+}
+
+main {
+  padding: 40px 20px;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin-bottom: 30px;
+}
+
+.project-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 12px;
+  width: 220px;
+  text-decoration: none;
+  color: #f0f0f0;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.project-card:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateY(-5px);
+}
+
+footer {
+  padding: 20px;
+  background: #1a1a1a;
+  margin-top: 50px;
+  font-size: 0.9em;
+}
