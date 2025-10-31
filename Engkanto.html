@@ -77,6 +77,49 @@
       </ul>
     </section>
   </main>
+  <!-- wp:cover {"url":"https://csscrafter.com/wp-content/uploads/2023/08/mysticforest.jpeg","id":137,"dimRatio":50,"overlayColor":"custom-dark-blue-2","className":"ticss-f3819e86","layout":{"type":"constrained"},"hasCustomCSS":true,"customCSS":".particle-container {\n  position:absolute;\n  top:0; left:8%; bottom:0;\n  width:55%;\n  //mix-blend-mode: soft-light;\n  \u002d\u002dtimescale:0.5s;\n}\n.pt {\n  display:block;\n  position:absolute;\n  left:calc( var(\u002d\u002dx) * 1%);\n  top:calc( var(\u002d\u002dy) * 1% );\n  height:50px; \n  /*border:dotted thin gray;*/\n  animation: moveUpDown calc( var(\u002d\u002dtimescale) * var(\u002d\u002dyt) ) infinite cubic-bezier(.45,.05,.55,.95) alternate;\n  animation-delay:calc( -1s * var(\u002d\u002dd, 0) );\n}\n.pt b{\n  display:block;\n  background:url(https://res.cloudinary.com/monson-productions/image/upload/v1645640126/glowey_yfdvor.png);\n  background-size:contain;\n  /*border:dotted thin green; */\n  width: calc( 0.1vw * var(\u002d\u002dw) );\n  height:calc( 0.1vw * var(\u002d\u002dw) );\n  position:absolute;\n  opacity:var(\u002d\u002do, 1);\n  animation: moveRightLeft calc( var(\u002d\u002dtimescale) * var(\u002d\u002dxt) ) infinite cubic-bezier(.45,.05,.55,.95) alternate , flicker calc( 2s * var(\u002d\u002dxd) ) infinite alternate  cubic-bezier(.45,.05,.55,.95);\n  animation-delay:calc( -1s * var(\u002d\u002dd, 0) ) , calc( -0.2s * var(\u002d\u002dd, 0) );\n}\n@keyframes moveUpDown {\n  0% {}\n  100% {transform:translateY( calc(50% * var(\u002d\u002dyd, 3))  ); } \n}\n@keyframes moveRightLeft {\n  0% { transform:translateX(  calc(-50% * var(\u002d\u002dxd, 3))  );}\n  100% {transform:translateX(  calc(50% * var(\u002d\u002dxd, 3))  ); }\n}\n@keyframes flicker{\n  0% { opacity:calc( var(\u002d\u002do, 1) - 0.1); }\n  100% { opacity:calc( var(\u002d\u002do, 1) + 0.1); }\n}\n  \n"} -->
+<div class="wp-block-cover ticss-f3819e86"><span aria-hidden="true" class="wp-block-cover__background has-custom-dark-blue-2-background-color has-background-dim"></span><img class="wp-block-cover__image-background wp-image-137" alt="" src="https://csscrafter.com/wp-content/uploads/2023/08/mysticforest.jpeg" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"27px"},"color":{"text":"#ffe200db"}},"className":"is-style-default"} -->
+<p class="has-text-align-center is-style-default has-text-color" style="color:#ffe200db;font-size:27px">Fairy Light Particle Animation</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<div class="particle-container">
+  <!--
+  x = position y =  position
+  xt = horizontal movement speed
+  yt = vertical movement speed
+  xd = horizontal movement distance
+  yd = vertical movement distance
+  w = width & height
+  d = animation delay
+  -->
+  <span style="--x:50; --y:0; --xt:13; --yt:12; --xd:2; --yd:2; --w:25;  --d:1; --o:.9;" class="pt"><b></b></span>
+  <span style="--x:16; --y:0; --xt:17; --yt:10; --xd:3; --yd:1; --w:39;  --d:6; --o:.5;" class="pt"><b></b></span>
+  <span style="--x:16; --y:0; --xt:17; --yt:10; --xd:3; --yd:3; --w:28;  --d:4; --o:.9;" class="pt"><b></b></span>
+    <span style="--x:66; --y:0; --xt:11; --yt:13; --xd:3; --yd:2; --w:38;  --d:2; --o:.9;" class="pt"><b></b></span>
+  <span style="--x:56; --y:-3; --xt:11; --yt:10; --xd:3; --yd:1; --w:58;  --d:0; --o:.9;" class="pt"><b></b></span>
+  <span style="--x:19; --y:0; --xt:17; --yt:10; --xd:3; --yd:4; --w:45;  --d:9; --o:.7;" class="pt"><b></b></span>
+  <span style="--x:49; --y:0; --xt:17; --yt:10; --xd:3; --yd:-4; --w:65;  --d:2; --o:.6;" class="pt"><b></b></span>
+  <span style="--x:20; --y:0; --xt:13; --yt:12; --xd:2; --yd:4; --w:70;  --d:8; --o:.9;" class="pt"><b></b></span>
+  <span style="--x:35; --y:3; --xt:8; --yt:16; --xd:0.5; --yd:0.8; --w:190; --d:5; --o:.7;" class="pt"><b></b></span>
+  <span style="--x:15; --y:10; --xt:18; --yt:16; --xd:0.5; --yd:1; --w:190; --d:6; --o:.9;" class="pt"><b></b></span>
+  <span style="--x:15; --y:30; --xt:9; --yt:22; --xd:0.5; --yd:1; --w:30; --d:9; --o:.4;" class="pt"><b></b></span>
+  <span style="--x:4; --y:20; --xt:10; --yt:7; --xd:1.5; --yd:1.2; --w:26; --d:12; --o:0.4;" class="pt"><b></b></span> 
+  <span style="--x:50; --y:40; --xt:16; --yt:6; --xd:4; --yd:-2; --w:70; --d:5; --o:0.3;" class="pt"><b></b></span>
+  <span style="--x:50; --y:40; --xt:16; --yt:6; --xd:1; --yd:-2; --w:170; --d:0; --o:1;" class="pt"><b></b></span>
+   <span style="--x:60; --y:40; --xt:16; --yt:6; --xd:1; --yd:2; --w:70; --d:5; --o:0.4;" class="pt"><b></b></span>
+  <span style="--x:50; --y:50; --xt:12; --yt:7; --xd:1; --yd:1.2; --w:100; --d:7; --o:0.4;" class="pt"><b></b></span>
+    <span style="--x:70; --y:40; --xt:4; --yt:1; --xd:0.5; --yd:.2; --w:100; --d:7; --o:0.4;" class="pt"><b></b></span>
+  <span style="--x:2; --y:50; --xt:10; --yt:7; --xd:1; --yd:1.2; --w:20; --d:7; --o:0.4;" class="pt"><b></b></span>
+    <span style="--x:4; --y:50; --xt:10; --yt:7; --xd:1.5; --yd:1.2; --w:16; --d:12; --o:0.4;" class="pt"><b></b></span> 
+  <span style="--x:10; --y:40; --xt:10; --yt:17; --xd:2; --yd:1.2; --w:28; --d:7; --o:0.4;" class="pt"><b></b></span>
+  <span style="--x:70; --y:60; --xt:12; --yt:6; --xd:2; --yd:2; --w:36; --d:5; --o:0.7;" class="pt"><b></b></span>
+  <span style="--x:10; --y:60; --xt:12; --yt:16; --xd:-1; --yd:2.2; --w:80; --d:5; --o:0.7;" class="pt"><b></b></span>
+  <span style="--x:10; --y:70; --xt:12; --yt:26; --xd:-1; --yd:2.2; --w:110; --d:5; --o:0.7;" class="pt"><b></b></span>
+ <span style="--x:19; --y:70; --xt:12; --yt:26; --xd:-1; --yd:3.2; --w:20; --d:5; --o:0.7;" class="pt"><b></b></span>
+</div>
+<!-- /wp:html --></div></div>
+<!-- /wp:cover -->
 
   <footer>
     <p>&copy; 2025 Team Hiraya. All rights reserved.</p>
