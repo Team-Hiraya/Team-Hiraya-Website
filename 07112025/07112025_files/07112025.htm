@@ -1,76 +1,308 @@
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
-<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
-<meta name=Generator content="Microsoft Word 15 (filtered)">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Notebook-Style Reviewer — Social Issues</title>
+
+<!-- Google Fonts for notebook feel -->
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+
 <style>
-<!--
- /* Font Definitions */
- @font-face
-	{font-family:Wingdings;
-	panose-1:5 0 0 0 0 0 0 0 0 0;}
-@font-face
-	{font-family:"Cambria Math";
-	panose-1:2 4 5 3 5 4 6 3 2 4;}
- /* Style Definitions */
- p.MsoNormal, li.MsoNormal, div.MsoNormal
-	{margin:0cm;
-	line-height:115%;
-	font-size:11.0pt;
-	font-family:"Arial",sans-serif;}
-p.MsoFooter, li.MsoFooter, div.MsoFooter
-	{mso-style-link:"Footer Char";
-	margin:0cm;
-	font-size:11.0pt;
-	font-family:"Arial",sans-serif;}
-p.MsoTitle, li.MsoTitle, div.MsoTitle
-	{margin-top:0cm;
-	margin-right:0cm;
-	margin-bottom:3.0pt;
-	margin-left:0cm;
-	line-height:115%;
-	page-break-after:avoid;
-	font-size:26.0pt;
-	font-family:"Arial",sans-serif;}
-p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
-	{margin-top:0cm;
-	margin-right:0cm;
-	margin-bottom:16.0pt;
-	margin-left:0cm;
-	line-height:115%;
-	page-break-after:avoid;
-	font-size:15.0pt;
-	font-family:"Arial",sans-serif;
-	color:#666666;}
-span.MsoIntenseReference
-	{font-variant:small-caps;
-	color:#4F81BD;
-	letter-spacing:.25pt;
-	font-weight:bold;}
-span.FooterChar
-	{mso-style-name:"Footer Char";
-	mso-style-link:Footer;}
-.MsoPapDefault
-	{line-height:115%;}
- /* Page Definitions */
- @page WordSection1
-	{size:595.45pt 841.7pt;
-	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
-div.WordSection1
-	{page:WordSection1;}
- /* List Definitions */
- ol
-	{margin-bottom:0cm;}
-ul
-	{margin-bottom:0cm;}
--->
+/* ---------- Notebook style base ---------- */
+:root{
+  --paper:#fffdf7;
+  --line:#d9e6f2;
+  --accent:#0b6fbf;
+  --ink:#222;
+  --note-shadow: 0 6px 18px rgba(20,20,30,0.12);
+  --margin-left:72px;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background: linear-gradient(180deg,#e9f2ff 0%, #f6fbff 8%, #fefefe 100%);
+  font-family: "Merriweather", Georgia, serif;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding:30px;
+}
+
+/* Top header */
+.header{
+  text-align:center;
+  margin-bottom:18px;
+}
+.brand{
+  display:inline-block;
+  background:linear-gradient(90deg,#ffefba,#ffd3a5);
+  padding:8px 16px;
+  border-radius:10px;
+  font-family:"Patrick Hand", "Segoe UI", sans-serif;
+  font-size:20px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.06);
+  border:1px solid rgba(0,0,0,0.04);
+}
+
+/* Notebook container */
+.container{
+  max-width:980px;
+  margin:0 auto;
+}
+
+/* Spiral & page look */
+.notebook {
+  background: var(--paper);
+  border-radius:12px;
+  padding:28px 28px 48px 28px;
+  box-shadow: var(--note-shadow);
+  position:relative;
+  overflow:visible;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* left spiral holes */
+.spiral {
+  position:absolute;
+  left: -28px;
+  top: 18px;
+  bottom: 18px;
+  width:56px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  gap:12px;
+}
+.spiral .hole{
+  width:14px;
+  height:14px;
+  background:linear-gradient(180deg,#1a1a1a,#666);
+  border-radius:50%;
+  box-shadow: inset 0 -2px 4px rgba(255,255,255,0.2);
+  transform:rotate(-12deg);
+  opacity:0.9;
+}
+
+/* faint ruled lines using repeating-linear-gradient */
+.notebook::before{
+  content:"";
+  pointer-events:none;
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  border-radius:12px;
+  background-image:
+    repeating-linear-gradient(to bottom, transparent 0 46px, rgba(0,108,179,0.03) 46px 47px);
+}
+
+/* page header bar */
+.page-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:18px;
+}
+.page-top h1{
+  font-family:"Patrick Hand", "Segoe UI", sans-serif;
+  font-size:26px;
+  margin:0;
+  color:var(--accent);
+  letter-spacing:0.6px;
+}
+.page-top .meta{
+  font-size:12px;
+  color:#666;
+}
+
+/* Notebook content area: we will place your original content here verbatim */
+.reviewer {
+  background:transparent;
+  padding:18px 22px;
+  border-radius:8px;
+  position:relative;
+}
+
+/* keep original Word styles small but readable */
+.reviewer p, .reviewer li, .reviewer span {
+  font-size:13px;
+  line-height:1.45;
+  color: #222;
+}
+
+/* visually separate sections as "pages" but still single scroll */
+.section-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,250,0.9));
+  padding:16px 18px;
+  border-radius:8px;
+  margin-bottom:18px;
+  border: 1px dashed rgba(0,0,0,0.04);
+  box-shadow: 0 6px 14px rgba(12,12,20,0.04);
+}
+
+/* small heading decal in handwriting font */
+.section-title{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:8px;
+}
+.section-title .note-h{
+  font-family:"Patrick Hand", "Segoe UI", sans-serif;
+  font-size:18px;
+  color:#2b5f96;
+  margin:0;
+}
+
+/* Buttons area */
+.controls{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  margin:16px 0 10px;
+}
+.btn{
+  padding:10px 14px;
+  border-radius:8px;
+  background: linear-gradient(180deg,#0b6fbf,#055fa3);
+  color:white;
+  border:none;
+  cursor:pointer;
+  font-weight:600;
+  box-shadow: 0 6px 20px rgba(10,80,140,0.12);
+}
+.btn.secondary{
+  background: linear-gradient(180deg,#ffd3a5,#ffefba);
+  color:#3b3b3b;
+  box-shadow: 0 6px 18px rgba(200,120,60,0.08);
+}
+
+/* Flashcards layout */
+#flashcards-container{
+  margin-top:18px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  justify-content:center;
+}
+.flashcard{
+  width:220px;
+  height:140px;
+  perspective:1000px;
+}
+.flashcard-inner{
+  position:relative;
+  width:100%;
+  height:100%;
+  transition: transform 0.75s;
+  transform-style:preserve-3d;
+  cursor:pointer;
+  border-radius:10px;
+  box-shadow: 0 6px 18px rgba(40,40,60,0.08);
+}
+.flashcard.flipped .flashcard-inner{ transform: rotateY(180deg); }
+.flashcard-face{
+  position:absolute;
+  left:0; right:0; top:0; bottom:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px;
+  border-radius:10px;
+  backface-visibility:hidden;
+  font-weight:600;
+  text-align:center;
+}
+.front{
+  background: linear-gradient(180deg,#fff 0%, #fffbf4 100%);
+  border: 1px solid rgba(0,0,0,0.06);
+  font-family:"Patrick Hand", "Segoe UI", sans-serif;
+}
+.back{
+  background: linear-gradient(180deg,#e8f7ff, #dff3ff);
+  transform: rotateY(180deg);
+  color:#0b3a5a;
+  font-family: "Merriweather", serif;
+}
+
+/* Quiz area */
+#quiz-section{
+  margin-top:20px;
+  padding:16px;
+  border-radius:8px;
+  background: linear-gradient(180deg,#fffefc,#f7fbff);
+  border:1px solid rgba(0,0,0,0.04);
+}
+.question{
+  font-weight:700;
+  margin-bottom:10px;
+}
+.options{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.option{
+  padding:10px;
+  border-radius:8px;
+  background:#f0f6fb;
+  border:1px solid rgba(0,0,0,0.04);
+  cursor:pointer;
+}
+.option.disabled{ pointer-events:none; opacity:0.8; }
+.option.correct{ background: #c8f7c5; border-color: #44a34a; }
+.option.wrong{ background: #ffd6d6; border-color: #e04b4b; }
+.quiz-footer{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  margin-top:12px;
+}
+
+/* result */
+#result{
+  margin-top:10px;
+  font-weight:700;
+  color:#0b3a5a;
+}
+
+/* responsive */
+@media (max-width:720px){
+  .container{ padding:0 14px; }
+  .page-top h1{ font-size:20px }
+  .flashcard{ width:47%; height:140px; }
+}
 </style>
-
 </head>
+<body>
 
-<body lang=EN-PH style='word-wrap:break-word'>
+<div class="container">
 
-<div class=WordSection1>
+  <div class="header">
+    <div class="brand">National Service Training Program 1</div>
+    <div style="font-size:13px; color:#4a4a4a; margin-top:6px;">(Reviewer by: Sobrepeña)</div>
+  </div>
+
+  <div class="notebook">
+    <div class="spiral" aria-hidden="true">
+      <!-- visual spiral holes -->
+      <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+      <div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    </div>
+
+    <div class="page-top">
+      <h1>Reviewer Notes</h1>
+    </div>
+
+    <div class="reviewer">
+
+      <!-- === ORIGINAL REVIEWER CONTENT (preserved exactly) === -->
+      <div class="WordSection1" id="original-content">
 
 <p class=MsoNormal style='text-align:justify'><b><span style='font-size:8.0pt;
 line-height:115%'>1. The Pervasive Impact of Poverty</span></b></p>
@@ -666,7 +898,273 @@ protection in the Philippines.</span></p>
 style='font-size:8.0pt;line-height:115%'>&nbsp;</span></p>
 
 </div>
+      <!-- === END ORIGINAL CONTENT === -->
+
+      <!-- Controls -->
+      <div class="controls" style="margin-top:12px;">
+        <button class="btn" id="show-flashcards-btn">📚 Show Flashcards</button>
+        <button class="btn secondary" id="show-quiz-btn">📝 Take Quiz</button>
+        <button class="btn" id="hide-tools-btn" style="display:none;background:linear-gradient(180deg,#777,#555)">Hide Tools</button>
+      </div>
+
+      <!-- Flashcards area (populated by JS) -->
+      <div id="flashcards-wrapper" style="display:none; margin-top:14px;">
+        <div style="font-weight:700; margin-bottom:8px; color:#0b3a5a;">Flashcards — click to flip</div>
+        <div id="flashcards-container" aria-live="polite"></div>
+      </div>
+
+      <!-- Quiz area -->
+      <div id="quiz-wrapper" style="display:none; margin-top:14px;">
+        <div id="quiz-section">
+          <div style="font-weight:700; margin-bottom:10px; color:#0b3a5a;">Quiz — multiple choice</div>
+          <div id="quiz-area"></div>
+          <div class="quiz-footer">
+            <button class="btn" id="prev-btn" style="display:none">⬅ Previous</button>
+            <button class="btn" id="next-btn" style="display:none">Next ➡</button>
+            <button class="btn secondary" id="finish-btn" style="display:none">Finish</button>
+            <div id="result" style="margin-left:auto"></div>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- end reviewer -->
+
+  </div> <!-- end notebook -->
+
+  <div style="text-align:center; margin-top:12px; font-size:12px; color:#666;">
+    Tip: Use the buttons above to toggle Flashcards or Quiz. Your reviewer content is unchanged.
+  </div>
+</div>
+
+<!-- ================== JS: Flashcards & Quiz ================== -->
+<script>
+/*
+  NOTE: The original reviewer content provided by the user is preserved verbatim above.
+  The flashcards and quiz below are generated from the content for study purposes.
+  If you want different questions/answers, tell me which lines to use and I'll modify them.
+*/
+
+/* --- Flashcards data (derived from your content) ---
+   Each flashcard uses short Q/A based on the reviewer's sections.
+   These do NOT alter the original content.
+*/
+const flashcards = [
+  { q: "What are the two primary types of poverty?", a: "Absolute Poverty and Relative Poverty" },
+  { q: "How does RA 8425 define the 'poor' in the Philippines?", a: "Individuals/families with income below NEDA poverty threshold or unable to sustain minimum basic needs." },
+  { q: "Name one major effect of poverty on children.", a: "Health and Nutrition Crisis (stunting, wasting, underweight) or Educational Barriers or Child Labor." },
+  { q: "What three mechanisms maintain the cycle of poverty?", a: "Generational Transfer, Limited Access, Perpetuated Struggle" },
+  { q: "List the root causes of poverty (three broad groups).", a: "Structural, Economic, Social/Cultural" },
+  { q: "What are the four types of child abuse identified?", a: "Physical, Sexual, Emotional, Neglect" },
+  { q: "Give two behavioral signs that may indicate a child is being abused.", a: "Withdrawal from friends; sudden changes in behavior or school performance" },
+  { q: "Name a long-term physical effect of child abuse.", a: "Physical disabilities, health problems or learning disabilities" },
+  { q: "What does 'juvenile delinquency' refer to?", a: "Illegal or antisocial behavior by minors (typically under 18)" },
+  { q: "Name two predictive risk factor domains for juvenile delinquency.", a: "Individual Factors; Family Factors; Peer Factors; School Factors; Media & Technology" },
+  { q: "What is RA 9344?", a: "Juvenile Justice and Welfare Act (establishes separate justice system for children)" },
+  { q: "What law is RA 9003?", a: "Ecological Solid Waste Management Act of 2000" },
+  { q: "What are the 5 Rs of Waste Management?", a: "Refuse, Reduce, Reuse, Recycle, Recover" },
+  { q: "What color is promoted for biodegradable waste?", a: "Green" },
+  { q: "Which international agreement is the Philippines a signatory to (climate)?", a: "Paris Agreement on Climate Change" }
+];
+
+/* --- Quiz questions (multiple choice) ---
+   Options are based on the reviewer's content. index indicates correct option.
+*/
+const quizQuestions = [
+  {
+    q: "Which of the following best describes Absolute Poverty?",
+    options: [
+      "Inequality in income distribution between groups",
+      "The inability to sustain life without assistance",
+      "Voluntary choice of simple living",
+      "Temporary unemployment"
+    ],
+    index: 1
+  },
+  {
+    q: "Which Republic Act is cited for the social reform & poverty definition?",
+    options: ["RA 9003", "RA 8425", "RA 9512", "RA 9344"],
+    index: 1
+  },
+  {
+    q: "Which is NOT listed as a type of child abuse in the reviewer?",
+    options: ["Physical", "Emotional", "Neglect", "Cognitive"],
+    index: 3
+  },
+  {
+    q: "What is RA 9003 focused on?",
+    options: ["Clean Air", "Solid Waste Management", "Juvenile Justice", "Child Protection"],
+    index: 1
+  },
+  {
+    q: "Which is one of the 5 Rs of Waste Management?",
+    options: ["Restructure", "Refuse", "Reinvest", "Rehabilitate"],
+    index: 1
+  },
+  {
+    q: "RA 9344 is also known as:",
+    options: ["Ecological Solid Waste Management Act", "Juvenile Justice and Welfare Act", "Clean Water Act", "Renewable Energy Act"],
+    index: 1
+  },
+  {
+    q: "Which climate agreement is mentioned in the reviewer?",
+    options: ["Kyoto Protocol", "Montreal Protocol", "Paris Agreement", "Geneva Convention"],
+    index: 2
+  },
+  {
+    q: "Which of the following is a root cause group of poverty listed?",
+    options: ["Geological", "Structural", "Biological", "Technological"],
+    index: 1
+  }
+];
+
+/* ---------- Populate Flashcards ---------- */
+const fcContainer = document.getElementById('flashcards-container');
+function renderFlashcards(){
+  fcContainer.innerHTML = '';
+  flashcards.forEach((f, i) => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'flashcard';
+    wrapper.setAttribute('tabindex','0');
+    wrapper.innerHTML = `
+      <div class="flashcard-inner">
+        <div class="flashcard-face front">${escapeHtml(f.q)}</div>
+        <div class="flashcard-face back">${escapeHtml(f.a)}</div>
+      </div>
+    `;
+    wrapper.addEventListener('click', () => wrapper.classList.toggle('flipped'));
+    wrapper.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' ') wrapper.classList.toggle('flipped'); });
+    fcContainer.appendChild(wrapper);
+  });
+}
+
+/* ---------- Quiz logic ---------- */
+let current = 0;
+let score = 0;
+
+const quizArea = document.getElementById('quiz-area');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const finishBtn = document.getElementById('finish-btn');
+const resultEl = document.getElementById('result');
+
+function renderQuestion(idx){
+  const item = quizQuestions[idx];
+  quizArea.innerHTML = '';
+  const qEl = document.createElement('div');
+  qEl.className = 'question';
+  qEl.textContent = `Q${idx+1}. ${item.q}`;
+  quizArea.appendChild(qEl);
+
+  const opts = document.createElement('div');
+  opts.className = 'options';
+  item.options.forEach((opt, i) => {
+    const o = document.createElement('div');
+    o.className = 'option';
+    o.textContent = opt;
+    o.addEventListener('click', () => handleAnswer(idx, i, o));
+    opts.appendChild(o);
+  });
+  quizArea.appendChild(opts);
+
+  // buttons visibility
+  prevBtn.style.display = idx>0 ? 'inline-block' : 'none';
+  nextBtn.style.display = idx < quizQuestions.length-1 ? 'inline-block' : 'none';
+  finishBtn.style.display = idx === quizQuestions.length-1 ? 'inline-block' : 'none';
+  resultEl.textContent = '';
+}
+
+function handleAnswer(qIdx, selIdx, optionEl){
+  // disable all options
+  const opts = quizArea.querySelectorAll('.option');
+  opts.forEach((el, i) => {
+    el.classList.add('disabled');
+    el.style.pointerEvents = 'none';
+    if(i === quizQuestions[qIdx].index) el.classList.add('correct');
+    if(i === selIdx && i !== quizQuestions[qIdx].index) el.classList.add('wrong');
+  });
+  // update score (only first click counts)
+  if(!quizQuestions[qIdx].answered){
+    quizQuestions[qIdx].answered = true;
+    if(selIdx === quizQuestions[qIdx].index) score++;
+  }
+  // show partial result
+  resultEl.textContent = `Score: ${score} / ${quizQuestions.length}`;
+}
+
+function nextQuestion(){
+  if(current < quizQuestions.length - 1){
+    current++;
+    renderQuestion(current);
+  }
+}
+function prevQuestion(){
+  if(current > 0){
+    current--;
+    renderQuestion(current);
+  }
+}
+function finishQuiz(){
+  // compute final score (some questions might be unanswered)
+  const totalCorrect = score;
+  quizArea.innerHTML = '';
+  resultEl.textContent = `Final score: ${totalCorrect} / ${quizQuestions.length}`;
+  finishBtn.style.display = 'none';
+  nextBtn.style.display = 'none';
+  prevBtn.style.display = 'none';
+  // offer review - show correct answers
+  const review = document.createElement('div');
+  review.style.marginTop = '12px';
+  review.innerHTML = '<div style="font-weight:700; margin-bottom:8px;">Answer Key</div>';
+  quizQuestions.forEach((q, i) => {
+    const div = document.createElement('div');
+    div.style.marginBottom = '8px';
+    div.innerHTML = `<div style="font-weight:600">Q${i+1}. ${escapeHtml(q.q)}</div>
+      <div style="margin-left:6px; color:#2b5f96;">Correct: ${escapeHtml(q.options[q.index])}</div>`;
+    review.appendChild(div);
+  });
+  quizArea.appendChild(review);
+}
+
+/* ---------- Utility: escape HTML to show content safely ---------- */
+function escapeHtml(str){
+  return String(str).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+}
+
+/* ---------- Controls for showing/hiding tools ---------- */
+const showFlashcardsBtn = document.getElementById('show-flashcards-btn');
+const showQuizBtn = document.getElementById('show-quiz-btn');
+const hideToolsBtn = document.getElementById('hide-tools-btn');
+const flashcardsWrapper = document.getElementById('flashcards-wrapper');
+const quizWrapper = document.getElementById('quiz-wrapper');
+
+showFlashcardsBtn.addEventListener('click', () => {
+  flashcardsWrapper.style.display = flashcardsWrapper.style.display === 'none' ? 'block' : 'block';
+  quizWrapper.style.display = 'none';
+  renderFlashcards();
+  document.getElementById('hide-tools-btn').style.display = 'inline-block';
+});
+showQuizBtn.addEventListener('click', () => {
+  quizWrapper.style.display = 'block';
+  flashcardsWrapper.style.display = 'none';
+  // reset quiz state
+  current = 0; score = 0;
+  quizQuestions.forEach(q=> q.answered = false);
+  renderQuestion(current);
+  document.getElementById('hide-tools-btn').style.display = 'inline-block';
+});
+hideToolsBtn.addEventListener('click', () => {
+  flashcardsWrapper.style.display = 'none';
+  quizWrapper.style.display = 'none';
+  hideToolsBtn.style.display = 'none';
+});
+
+nextBtn.addEventListener('click', nextQuestion);
+prevBtn.addEventListener('click', prevQuestion);
+finishBtn.addEventListener('click', finishQuiz);
+
+/* initial render (tools hidden) */
+renderFlashcards(); // generate (but wrapper hidden initially)
+</script>
 
 </body>
-
 </html>
