@@ -10,8 +10,7 @@
   <script src="script.js" defer></script>
 </head>
 
-<body>
-    <!-- Magical Background Elements -->
+<body> <!-- Magical Background Elements -->
   <div class="magical-bg"></div>
   <div class="glow-effect"></div>
   <div class="magical-orbs">
@@ -79,6 +78,62 @@
 
   <!-- Main Content -->
   <main class="main-content">
+    <!-- Music Player -->
+    <div class="music-player-container">
+      <div class="player-header">
+        <div class="player-title">Team Hiraya Soundtrack</div>
+        <div class="player-controls">
+          <button class="player-btn" id="minimizeBtn"><i class="fas fa-minus"></i></button>
+          <button class="player-btn" id="closeBtn"><i class="fas fa-times"></i></button>
+        </div>
+      </div>
+
+      <div class="player-content">
+        <div class="album-art">
+          <img
+            src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+            alt="Album Art">
+        </div>
+
+        <div class="track-info">
+          <div class="track-title">Engkanto Theme</div>
+          <div class="track-artist">Team Hiraya</div>
+
+          <div class="progress-container">
+            <div class="progress-bar" id="progressBar">
+              <div class="progress" id="progress"></div>
+            </div>
+            <div class="time-info">
+              <span id="currentTime">0:00</span>
+              <span id="duration">0:00</span>
+            </div>
+          </div>
+
+          <div class="player-actions">
+            <div class="action-buttons">
+              <button class="action-btn" id="prevBtn"><i class="fas fa-step-backward"></i></button>
+            </div>
+
+            <button class="play-pause" id="playPauseBtn">
+              <i class="fas fa-play"></i>
+            </button>
+
+            <div class="action-buttons">
+              <button class="action-btn" id="nextBtn"><i class="fas fa-step-forward"></i></button>
+            </div>
+
+            <div class="volume-control">
+              <button class="action-btn" id="volumeBtn"><i class="fas fa-volume-up"></i></button>
+              <div class="volume-slider" id="volumeSlider">
+                <div class="volume-level" id="volumeLevel"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <header>
       <h1>TEAM HIRAYA</h1>
       <p>
@@ -88,6 +143,14 @@
         their form.
       </p>
     </header>
+    </div>
+    <div class="particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
 
     <!-- Star Animation -->
     <div class="bg-animation">
@@ -110,11 +173,11 @@
           reimagined through filipino setting, Set
           in a dark, mysterious world filled with creatures from Philippine mythology, the game blends exploration,
           combat, and storytelling into a deeply atmospheric experience.</p>
-          <br>
+        <br>
         <p>You play as Laurel, a young girl who mysteriously wakes up in an unfamiliar world teeming with spirits, gods,
           monsters. Armed only with her arnis, Laurel must journey across diverse regions, uncover the secrets of the
           land, and find a way back to the real world.</p>
-          <br>
+        <br>
         <p>Throughout her adventure, Laurel encounters various characters who speak in different Filipino dialects, each
           offering fragments of lore, guidance, and challenges that deepen the world's mystery. The game emphasizes
           exploration, fast paced combat, and emotional storytelling, inviting players to uncover the truth behind
