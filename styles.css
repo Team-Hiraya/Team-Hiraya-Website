@@ -5,13 +5,18 @@
      box-sizing: border-box;
    }
 
+   div {
+     text-align: justify;
+     text-justify: inter-word;
+   }
+
    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #1a0b2e, #0d0630);
-      color: #fff;
-      min-height: 100vh;
-      overflow-x: hidden;
-      position: relative;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     background: linear-gradient(135deg, #1a0b2e, #0d0630);
+     color: #fff;
+     min-height: 100vh;
+     overflow-x: hidden;
+     position: relative;
    }
 
    /* Music Player Styles */
@@ -1078,6 +1083,13 @@
      background: rgba(0, 0, 0, 0.7);
      z-index: 999;
      backdrop-filter: blur(5px);
+   }
+
+   .full-block {
+     text-align: justify;
+     margin-bottom: 1.2em;
+     line-height: 1.6;
+     text-justify: inter-word;
    }
 
    @media (max-width: 768px) {

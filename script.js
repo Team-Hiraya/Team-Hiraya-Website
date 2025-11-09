@@ -20,7 +20,7 @@ const sidebarOverlay = document.getElementById('sidebarOverlay');
       // Audio element
       const audio = new Audio();
       // Replace this URL with your actual music file
-      audio.src = "Engkanto/audio/Rugerra.mp3";
+      audio.src = "Engkanto/audio/Obra Encantada.mp3";
       
       // Player state
       let isPlaying = false;
