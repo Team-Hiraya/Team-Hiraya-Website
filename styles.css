@@ -1,271 +1,428 @@
-  /* Base styles */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0a0a1a;
-    color: #e0e0ff;
-    line-height: 1.6;
-    display: flex;
-    min-height: 100vh;
-  }
-
-  /* Sidebar styles */
-  .sidebar {
-    width: 280px;
-    background: rgba(10, 15, 35, 0.85);
-    backdrop-filter: blur(10px);
-    border-right: 1px solid rgba(100, 120, 255, 0.2);
-    padding: 2rem 1.5rem;
-    position: fixed;
-    height: 100vh;
-    overflow-y: auto;
-    z-index: 100;
-    transition: all 0.3s ease;
-  }
-
-  .sidebar-header {
-    text-align: center;
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(100, 120, 255, 0.3);
-  }
-
-  .sidebar-header h1 {
-    font-size: 1.8rem;
-    color: #7a9eff;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 0 10px rgba(122, 158, 255, 0.5);
-  }
-
-  .sidebar-header p {
-    font-size: 0.9rem;
-    color: #b0b8ff;
-  }
-
-  .sidebar-nav {
-    margin-bottom: 2rem;
-  }
-
-  .nav-section {
-    margin-bottom: 1.5rem;
-  }
-
-  .nav-section h3 {
-    font-size: 1rem;
-    color: #8aa2ff;
-    margin-bottom: 0.8rem;
-    padding-left: 0.5rem;
-    border-left: 3px solid #7a9eff;
-  }
-
-  .nav-links {
-    list-style: none;
-  }
-
-  .nav-links li {
-    margin-bottom: 0.5rem;
-  }
-
-  .nav-links a {
-    display: flex;
-    align-items: center;
-    padding: 0.7rem 1rem;
-    color: #c0c8ff;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .nav-links a:hover {
-    background: rgba(122, 158, 255, 0.15);
-    color: #ffffff;
-    transform: translateX(5px);
-  }
-
-  .nav-links a.active {
-    background: rgba(122, 158, 255, 0.2);
-    color: #ffffff;
-    border-left: 3px solid #7a9eff;
-  }
-
-  .nav-links a::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.5s;
-  }
-
-  .nav-links a:hover::before {
-    left: 100%;
-  }
-
-  .nav-icon {
-    margin-right: 10px;
-    font-size: 1.2rem;
-  }
-
-  .sidebar-footer {
-    margin-top: auto;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(100, 120, 255, 0.3);
-    text-align: center;
-    font-size: 0.8rem;
-    color: #8a9acc;
-  }
-
-  /* Main content area */
-  .main-content {
-    flex: 1;
-    margin-left: 280px;
-    padding: 2rem;
-    position: relative;
-  }
-
-  /* Mobile toggle button */
-  .sidebar-toggle {
-    display: none;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1000;
-    background: rgba(10, 15, 35, 0.8);
-    border: 1px solid rgba(100, 120, 255, 0.3);
-    color: #7a9eff;
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.2rem;
-  }
-
-  /* Add these to your existing CSS for extra flair */
-
-  /* Subtle glow animation for active items */
-  @keyframes gentleGlow {
-
-    0%,
-    100% {
-      box-shadow: 0 0 5px rgba(122, 158, 255, 0.3);
+   /* Base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    50% {
-      box-shadow: 0 0 15px rgba(122, 158, 255, 0.6);
-    }
-  }
-
-  .nav-links a.active {
-    animation: gentleGlow 3s ease-in-out infinite;
-  }
-
-  /* Floating animation for sidebar header */
-  .sidebar-header {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  @keyframes float {
-
-    0%,
-    100% {
-      transform: translateY(0px);
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #e0e0ff;
+      line-height: 1.6;
+      display: flex;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    50% {
-      transform: translateY(-5px);
-    }
-  }
-
-  .sidebar {
-  background: rgba(15, 20, 40, 0.9); /* Dark blue-purple */
-  border-right-color: rgba(138, 162, 255, 0.3);
-}
-
-.sidebar-header h1 {
-  color: #8aa2ff; /* Softer blue */
-}
-
-  /* Particle effect on hover */
-  .nav-links a:hover .nav-icon {
-    position: relative;
-  }
-
-  .nav-links a:hover .nav-icon::after {
-    content: '✨';
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    font-size: 0.7rem;
-    animation: sparkle 0.5s ease-out;
-  }
-
-  @keyframes sparkle {
-    0% {
-      transform: scale(0);
-      opacity: 0;
+    /* Magical Background Effects */
+    .magical-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(122, 158, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(200, 120, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(100, 220, 255, 0.08) 0%, transparent 50%),
+        linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a2a 100%);
     }
 
-    50% {
-      transform: scale(1.2);
-      opacity: 1;
+    /* Floating Particles */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
     }
 
-    100% {
-      transform: scale(1);
-      opacity: 0.7;
+    .particle {
+      position: absolute;
+      background: 
+        radial-gradient(circle, 
+          rgba(122, 158, 255, 0.8) 0%, 
+          rgba(200, 120, 255, 0.6) 30%, 
+          transparent 70%);
+      border-radius: 50%;
+      animation: float 6s infinite ease-in-out;
     }
-  }
 
-  /* Responsive styles */
-  @media (max-width: 768px) {
+    .particle:nth-child(1) {
+      width: 4px;
+      height: 4px;
+      top: 20%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .particle:nth-child(2) {
+      width: 6px;
+      height: 6px;
+      top: 60%;
+      left: 80%;
+      animation-delay: 1s;
+    }
+
+    .particle:nth-child(3) {
+      width: 3px;
+      height: 3px;
+      top: 80%;
+      left: 20%;
+      animation-delay: 2s;
+    }
+
+    .particle:nth-child(4) {
+      width: 5px;
+      height: 5px;
+      top: 30%;
+      left: 70%;
+      animation-delay: 3s;
+    }
+
+    .particle:nth-child(5) {
+      width: 4px;
+      height: 4px;
+      top: 70%;
+      left: 40%;
+      animation-delay: 4s;
+    }
+
+    /* Magical Orbs */
+    .magical-orbs {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: 0.6;
+      animation: orbFloat 15s infinite ease-in-out;
+    }
+
+    .orb-1 {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(122, 158, 255, 0.4) 0%, transparent 70%);
+      top: -100px;
+      left: -100px;
+      animation-delay: 0s;
+    }
+
+    .orb-2 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(200, 120, 255, 0.3) 0%, transparent 70%);
+      bottom: -150px;
+      right: -150px;
+      animation-delay: 5s;
+    }
+
+    .orb-3 {
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(100, 220, 255, 0.25) 0%, transparent 70%);
+      top: 50%;
+      left: 60%;
+      animation-delay: 10s;
+    }
+
+    /* Magical Glow Effects */
+    .glow-effect {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: 
+        radial-gradient(circle at 50% 50%, 
+          rgba(122, 158, 255, 0.1) 0%, 
+          transparent 50%),
+        radial-gradient(circle at 80% 80%, 
+          rgba(200, 120, 255, 0.05) 0%, 
+          transparent 50%);
+      animation: glowPulse 8s infinite ease-in-out;
+    }
+
+    /* Animations */
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.7;
+      }
+      33% {
+        transform: translateY(-20px) rotate(120deg);
+        opacity: 1;
+      }
+      66% {
+        transform: translateY(10px) rotate(240deg);
+        opacity: 0.5;
+      }
+    }
+
+    @keyframes orbFloat {
+      0%, 100% {
+        transform: translate(0, 0) scale(1);
+      }
+      25% {
+        transform: translate(50px, -30px) scale(1.1);
+      }
+      50% {
+        transform: translate(-30px, 40px) scale(0.9);
+      }
+      75% {
+        transform: translate(40px, 20px) scale(1.05);
+      }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% {
+        opacity: 0.5;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.8;
+        transform: scale(1.02);
+      }
+    }
+
+    /* Sidebar styles */
     .sidebar {
-      transform: translateX(-100%);
+      width: 280px;
+      background: rgba(10, 15, 35, 0.85);
+      backdrop-filter: blur(15px);
+      border-right: 1px solid rgba(122, 158, 255, 0.3);
+      padding: 2rem 1.5rem;
+      position: fixed;
+      height: 100vh;
+      overflow-y: auto;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+      left: 0;
+      top: 0;
+      box-shadow: 0 0 30px rgba(122, 158, 255, 0.1);
     }
 
-    .sidebar.open {
-      transform: translateX(0);
+    .sidebar-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(122, 158, 255, 0.3);
+      position: relative;
     }
 
-    .main-content {
-      margin-left: 0;
+    .sidebar-header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 25%;
+      width: 50%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #7a9eff, transparent);
     }
 
-    .sidebar-toggle {
+    .sidebar-header h1 {
+      font-size: 1.8rem;
+      color: #7a9eff;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 20px rgba(122, 158, 255, 0.5);
+      background: linear-gradient(135deg, #7a9eff, #c878ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .sidebar-header p {
+      font-size: 0.9rem;
+      color: #b0b8ff;
+      text-shadow: 0 0 10px rgba(176, 184, 255, 0.3);
+    }
+
+    .sidebar-nav {
+      margin-bottom: 2rem;
+    }
+
+    .nav-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .nav-section h3 {
+      font-size: 1rem;
+      color: #8aa2ff;
+      margin-bottom: 0.8rem;
+      padding-left: 0.5rem;
+      border-left: 3px solid #7a9eff;
+      text-shadow: 0 0 10px rgba(138, 162, 255, 0.3);
+    }
+
+    .nav-links {
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-links a {
       display: flex;
       align-items: center;
-      justify-content: center;
+      padding: 0.7rem 1rem;
+      color: #c0c8ff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      background: rgba(122, 158, 255, 0.05);
+      border: 1px solid transparent;
     }
-  }
 
-  /* Star animation styles (from your existing code) */
-  .bg-animation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-  }
+    .nav-links a:hover {
+      background: rgba(122, 158, 255, 0.15);
+      color: #ffffff;
+      transform: translateX(5px);
+      border-color: rgba(122, 158, 255, 0.3);
+      box-shadow: 0 0 15px rgba(122, 158, 255, 0.2);
+    }
 
-  #stars,
-  #stars2,
-  #stars3,
-  #stars4 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
+    .nav-links a.active {
+      background: rgba(122, 158, 255, 0.2);
+      color: #ffffff;
+      border-left: 3px solid #7a9eff;
+      box-shadow: 0 0 20px rgba(122, 158, 255, 0.3);
+    }
 
-  /* Rest of your existing star animation CSS would go here */
-  /* I've omitted it for brevity but it should be included */
+    .nav-links a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.5s;
+    }
+
+    .nav-links a:hover::before {
+      left: 100%;
+    }
+
+    .nav-icon {
+      margin-right: 10px;
+      font-size: 1.2rem;
+      filter: drop-shadow(0 0 5px rgba(122, 158, 255, 0.5));
+    }
+
+    .sidebar-footer {
+      margin-top: auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(122, 158, 255, 0.3);
+      text-align: center;
+      font-size: 0.8rem;
+      color: #8a9acc;
+      text-shadow: 0 0 5px rgba(138, 154, 204, 0.3);
+    }
+
+    /* Main content area */
+    .main-content {
+      flex: 1;
+      margin-left: 280px;
+      padding: 2rem;
+      position: relative;
+      transition: margin-left 0.3s ease;
+    }
+
+    /* Content styling to match magical theme */
+    .main-content h1, .main-content h2 {
+      background: linear-gradient(135deg, #7a9eff, #c878ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 20px rgba(122, 158, 255, 0.3);
+    }
+
+    .project-card {
+      background: rgba(122, 158, 255, 0.1);
+      border: 1px solid rgba(122, 158, 255, 0.2);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .project-card:hover {
+      background: rgba(122, 158, 255, 0.2);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(122, 158, 255, 0.2);
+    }
+
+    /* Mobile styles remain the same */
+    .sidebar-toggle {
+      display: none;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1001;
+      background: rgba(10, 15, 35, 0.9);
+      border: 1px solid rgba(122, 158, 255, 0.3);
+      color: #7a9eff;
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 15px rgba(122, 158, 255, 0.2);
+    }
+
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 999;
+      backdrop-filter: blur(5px);
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+        width: 280px;
+      }
+
+      .sidebar.open {
+        transform: translateX(0);
+        box-shadow: 0 0 50px rgba(122, 158, 255, 0.3);
+      }
+
+      .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 1rem;
+        padding-top: 80px;
+      }
+
+      .sidebar-toggle {
+        display: flex;
+      }
+
+      .sidebar-overlay.active {
+        display: block;
+      }
+    }
