@@ -1,0 +1,116 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #f0f0f0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.particle-container {
+  position:absolute;
+  top:0; left:8%; bottom:0;
+  width:55%;
+  /* mix-blend-mode: soft-light; */
+  --timescale: 0.5s;
+}
+.pt {
+  display:block;
+  position:absolute;
+  left:calc( var(--x) * 1%);
+  top:calc( var(--y) * 1% );
+  height:50px; 
+  /*border:dotted thin gray;*/
+  animation: moveUpDown calc( var(--timescale) * var(--yt) ) infinite cubic-bezier(.45,.05,.55,.95) alternate;
+  animation-delay:calc( -1s * var(--d, 0) );
+}
+.pt b{
+  display:block;
+  background:url(https://res.cloudinary.com/monson-productions/image/upload/v1645640126/glowey_yfdvor.png);
+  background-size:contain;
+  /*border:dotted thin green; */
+  width: calc( 0.1vw * var(--w) );
+  height:calc( 0.1vw * var(--w) );
+  position:absolute;
+  opacity:var(--o, 1);
+  animation: moveRightLeft calc( var(--timescale) * var(--xt) ) infinite cubic-bezier(.45,.05,.55,.95) alternate , flicker calc( 2s * var(--xd) ) infinite alternate  cubic-bezier(.45,.05,.55,.95);
+  animation-delay:calc( -1s * var(--d, 0) ) , calc( -0.2s * var(--d, 0) );
+}
+@keyframes moveUpDown {
+  0% {}
+  100% {transform:translateY( calc(50% * var(--yd, 3))  ); } 
+}
+@keyframes moveRightLeft {
+  0% { transform:translateX(  calc(-50% * var(--xd, 3))  );}
+  100% {transform:translateX(  calc(50% * var(--xd, 3))  ); }
+}
+@keyframes flicker{
+  0% { opacity:calc( var(--o, 1) - 0.1); }
+  100% { opacity:calc( var(--o, 1) + 0.1); }
+}
+  
+
+
+/* Canvas background */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 40px 20px;
+  backdrop-filter: blur(4px);
+}
+
+.logo {
+  width: 300px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Main content */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(0,0,0,0.5);
+  border-radius: 12px;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 5px;
+}
+
+a {
+  color: #66ccff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0,0,0,0.6);
+  border-top: 1px solid #333;
+  font-size: 0.9em;
+}

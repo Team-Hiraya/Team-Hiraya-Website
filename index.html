@@ -1,37 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample HTML Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Hiraya Studio</title>
+  <link rel="icon" type="image/x-icon" href="Engkanto/android-chrome-192x192.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
-<body>
-    <header>
-        <h1>Welcome to My Sample Page</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="#section1">Section 1</a></li>
-            <li><a href="#section2">Section 2</a></li>
-            <li><a href="#section3">Section 3</a></li>
+
+<body> <!-- Magical Background Elements -->
+  <div class="magical-bg"></div>
+  <div class="glow-effect"></div>
+  <div class="magical-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+  <!-- Mobile Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Sidebar Toggle Button (Mobile) -->
+  <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h1>TEAM HIRAYA</h1>
+      <p>Where creativity grows</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <h3>Navigation</h3>
+        <ul class="nav-links">
+          <li><a href="#" class="active"><span class="nav-icon">🏠</span> Home</a></li>
+          <li><a href="About_Us/AboutUs.html"><span class="nav-icon">👥</span> About Us</a></li>
+          <li><a href="#"><span class="nav-icon">📞</span> Contact</a></li>
+          <li><a href="#"><span class="nav-icon">📰</span> Blog</a></li>
         </ul>
+      </div>
+
+      <div class="nav-section">
+        <h3>Our Projects</h3>
+        <ul class="nav-links">
+          <li><a href="Engkanto/Engkanto.html"><span class="nav-icon">🎮</span> Engkanto</a></li>
+          <li><a href="#"><span class="nav-icon">🎨</span> Art Gallery</a></li>
+          <li><a href="#"><span class="nav-icon">🎬</span> Animations</a></li>
+          <li><a href="#"><span class="nav-icon">📱</span> Mobile Apps</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <h3>Resources</h3>
+        <ul class="nav-links">
+          <li><a href="#"><span class="nav-icon">📚</span> Documentation</a></li>
+          <li><a href="#"><span class="nav-icon">🛠️</span> Development</a></li>
+          <li><a href="#"><span class="nav-icon">🎵</span> Soundtrack</a></li>
+          <li><a href="#"><span class="nav-icon">🖼️</span> Wallpapers</a></li>
+        </ul>
+      </div>
     </nav>
-    <main>
-        <section id="section1">
-            <h2>Section 1</h2>
-            <p>This is the first section of the sample page.</p>
-        </section>
-        <section id="section2">
-            <h2>Section 2</h2>
-            <p>This is the second section of the sample page.</p>
-        </section>
-        <section id="section3">
-            <h2>Section 3</h2>
-            <p>This is the third section of the sample page.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Sample Page. All rights reserved.</p>
-    </footer>
+
+    <div class="sidebar-footer">
+      <p>&copy; 2025 Team Hiraya</p>
+      <p>All rights reserved</p>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Music Player -->
+    <div class="music-player-container">
+      <div class="player-header">
+        <div class="player-title">Team Hiraya Soundtrack</div>
+        <div class="player-controls">
+          <button class="player-btn" id="minimizeBtn"><i class="fas fa-minus"></i></button>
+          <button class="player-btn" id="closeBtn"><i class="fas fa-times"></i></button>
+        </div>
+      </div>
+
+      <div class="player-content">
+        <div class="album-art">
+          <img
+            src="Engkanto/art-engkanto.png"
+            alt="Album Art">
+        </div>
+
+        <div class="track-info">
+          <div class="track-title">Obra Encantada (Engkanto Intro Cutscene)</div>
+          <div class="track-artist">Pinikpikan</div>
+
+          <div class="progress-container">
+            <div class="progress-bar" id="progressBar">
+              <div class="progress" id="progress"></div>
+            </div>
+            <div class="time-info">
+              <span id="currentTime">0:00</span>
+              <span id="duration">0:00</span>
+            </div>
+          </div>
+
+          <div class="player-actions">
+            <div class="action-buttons">
+              <button class="action-btn" id="prevBtn"><i class="fas fa-step-backward"></i></button>
+            </div>
+
+            <button class="play-pause" id="playPauseBtn">
+              <i class="fas fa-play"></i>
+            </button>
+
+            <div class="action-buttons">
+              <button class="action-btn" id="nextBtn"><i class="fas fa-step-forward"></i></button>
+            </div>
+
+            <div class="volume-control">
+              <button class="action-btn" id="volumeBtn"><i class="fas fa-volume-up"></i></button>
+              <div class="volume-slider" id="volumeSlider">
+                <div class="volume-level" id="volumeLevel"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <header>
+      <h1>TEAM HIRAYA</h1>
+      <p>
+        We are a small indie team driven by imagination and purpose — creating games, animation, art, and more.
+        Rooted in the meaning of <strong>Hiraya</strong> — "the fruit of one's hopes and dreams" — our work reflects
+        a balance of vision, discipline, and respect. This is where creativity grows, ideas take shape, and dreams find
+        their form.
+      </p>
+    </header>
+    </div>
+    <div class="particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+
+    <!-- Star Animation -->
+    <div class="bg-animation">
+      <div id='stars'></div>
+      <div id='stars2'></div>
+      <div id='stars3'></div>
+      <div id='stars4'></div>
+    </div>
+
+    <br>
+    <hr>
+
+    <section class="main">
+      <h1>ENGKANTO</h1>
+      <h5>Game In Development!</h5>
+      <div class="engkanto-image" style="height: 200px;">
+        <img src="Engkanto/Raya.png" alt="Raya" style="max-height: 100%; max-width: 100%;">
+        <img src="Engkanto/ConceptArt.png" alt="Concept art" style="max-height: 100%; max-width: 100%;">
+        <p style="text-align:justify;">Engkanto is a 2D action adventure game inspired by Team Cherry Hollow knight and Hollow knight: Silksong,
+          reimagined through filipino setting, Set
+          in a dark, mysterious world filled with creatures from Philippine mythology, the game blends exploration,
+          combat, and storytelling into a deeply atmospheric experience.</p>
+        <br>
+        <p style="text-align:justify;">You play as Laurel, a young girl who mysteriously wakes up in an unfamiliar world teeming with spirits, gods,
+          monsters. Armed only with her arnis, Laurel must journey across diverse regions, uncover the secrets of the
+          land, and find a way back to the real world.</p>
+        <br>
+        <p style="text-align:justify;">Throughout her adventure, Laurel encounters various characters who speak in different Filipino dialects, each
+          offering fragments of lore, guidance, and challenges that deepen the world's mystery. The game emphasizes
+          exploration, fast paced combat, and emotional storytelling, inviting players to uncover the truth behind
+          Laurel's presence in this strange land and the hidden history of the Engkanto word itself.</p>
+      </div>
+    </section>
+
+  </main>
+</body>
+
 </html>
